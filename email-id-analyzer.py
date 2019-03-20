@@ -24,8 +24,6 @@ class MyHTMLParser(HTMLParser):
         print(data)
 
 
-user_agent = 'Email-ID-Analyzer-DC'
-
 print("Welcome to your personal Email-ID-Analyzer!")
 print("-------------------------------------------")
 
@@ -33,8 +31,8 @@ print("Please enter the email-id you wish to check.")
 user_email_id = str(input())
 
 print(f'Check whether the email-id : {user_email_id} has been comprised...')
-
-r = requests.get(f'https://haveibeenpwned.com/api/breachedaccount/{user_email_id}')
+headers = {'User-Agent' : 'Email-ID-Analyzer-DC'}
+r = requests.get(f'https://haveibeenpwned.com/api/breachedaccount/{user_email_id}', headers = headers)
 
 
 
@@ -47,7 +45,7 @@ else:
     i = 0
     while i < len(company_list):
         print(f'Name : {company_list[i]}')
-        r1 = requests.get(f'https://haveibeenpwned.com/api/v2/breach/{company_list[i]}')
+        r1 = requests.get(f'https://haveibeenpwned.com/api/v2/breach/{company_list[i]}', headers = headers)
         temp_list = r1.json()
         print(f'Website: {temp_list["Domain"]}')
         print(f'What was leaked : {temp_list["DataClasses"]}')
