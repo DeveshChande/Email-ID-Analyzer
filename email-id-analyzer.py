@@ -6,8 +6,9 @@ It will notify the user of the following information, in the event that a
 breach has occurred :
 
 1. Company Name
-2. Compromised information
-3. Summary of the breach
+2. Domain
+3. Compromised information
+4. Date of Breach
 
 In the event that the email is not leaked (as far as verification through public
 resources go, the user will be notified that no data leaks have been associated
